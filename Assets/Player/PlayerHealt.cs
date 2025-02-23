@@ -10,6 +10,8 @@ public class PlayerHealt : MonoBehaviour
     [SerializeField] TextMeshProUGUI healtText;
     DisplayDamage displayDamage;
     public int GetplayerCurrentHP{get{return playerCurrentHP;}}
+    
+
     void Start()
     {
         playerCurrentHP = playerMaxHP;

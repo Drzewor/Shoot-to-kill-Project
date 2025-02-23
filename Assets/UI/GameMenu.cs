@@ -17,15 +17,25 @@ public class GameMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            int playerHealthPoints = FindObjectOfType<PlayerHealt>().GetplayerCurrentHP;
+
+            if(playerHealthPoints <= 0) return;
+
             if(gameMenuGameObject.activeSelf)
             {
                 Time.timeScale = 1;
                 gameMenuGameObject.SetActive(false);
+                FindObjectOfType<WeaponSwitcher>().enabled = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
             else
             {
                 Time.timeScale = 0;
                 gameMenuGameObject.SetActive(true);
+                FindObjectOfType<WeaponSwitcher>().enabled = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
         }
     }
